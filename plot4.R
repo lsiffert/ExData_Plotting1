@@ -10,7 +10,10 @@ makePlot4 <- function() {
     ## Subsetting data to the selected dates
     mySubsetData<-subset(myData, Date>='2007-02-01' & Date<= '2007-02-02')
     ## Converting data into numeric (to draw plot it's better)
-    mySubsetData$Global_active_power<-as.numeric(mySubsetData$Global_active_power)
+    mySubsetData$Global_active_power<-as.numeric(as.character(mySubsetData$Global_active_power))
+    mySubsetData$Sub_metering_1<-as.numeric(as.character(mySubsetData$Sub_metering_1))
+    mySubsetData$Sub_metering_2<-as.numeric(as.character(mySubsetData$Sub_metering_2))
+    mySubsetData$Sub_metering_3<-as.numeric(as.character(mySubsetData$Sub_metering_3))
     ## Open png file for writing plot
     png(filename='plot4.png')
     ## Creating plot

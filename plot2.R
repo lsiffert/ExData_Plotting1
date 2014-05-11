@@ -10,11 +10,11 @@ makePlot2 <- function() {
     ## Subsetting data to the selected dates
     mySubsetData<-subset(myData, Date>='2007-02-01' & Date<= '2007-02-02')
     ## Converting data into numeric (to draw plot it's better)
-    mySubsetData$Global_active_power<-as.numeric(mySubsetData$Global_active_power)
+    mySubsetData$Global_active_power<-as.numeric(as.character(mySubsetData$Global_active_power))
     ## Open png file for writing plot
     png(filename='plot2.png')
     ## Creating plot
-    plot(mySubsetData$Time,mySubsetData$Global_active_power/1000,type='l', ylab='Global Active Power (kilowatts)',xlab='')
+    plot(mySubsetData$Time,mySubsetData$Global_active_power,type='l', ylab='Global Active Power (kilowatts)',xlab='')
     ## Closing png file and saving
     dev.off()
     
